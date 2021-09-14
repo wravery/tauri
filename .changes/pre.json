@@ -210,6 +210,7 @@
     ".changes/msi-license.md",
     ".changes/non-exhaustive.md",
     ".changes/notification-permission.md",
+    ".changes/notification-regression.md",
     ".changes/panic-dispatcher-getter-main-thread.md",
     ".changes/path-resolver.md",
     ".changes/percent-decode-asset-protocol.md",
