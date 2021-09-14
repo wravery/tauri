@@ -1,5 +1,10 @@
 # Changelog
 
+## \[1.0.0-beta.9]
+
+- Fixes `Notification.requestPermission()` deadlock.
+  - [48f3768c](https://www.github.com/tauri-apps/tauri/commit/48f3768c41a2c68e2e097fcc1ef50e549c1dfb78) fix(core): `Notification.requestPermission()` deadlock regression on 2021-08-24
+
 ## \[1.0.0-beta.8]
 
 - Fix missing asset protocol path.Now the protocol is `https://asset.localhost/path/to/file` on Windows. Lunix and macOS
