@@ -564,14 +564,15 @@ impl AsRawFd for Term {
 #[cfg(windows)]
 impl AsRawHandle for Term {
   fn as_raw_handle(&self) -> RawHandle {
-    use winapi::um::processenv::GetStdHandle;
-    use winapi::um::winbase::{STD_ERROR_HANDLE, STD_OUTPUT_HANDLE};
+    use webview2_com_sys::Windows::Win32::System::Console::{
+      GetStdHandle, STD_ERROR_HANDLE, STD_OUTPUT_HANDLE,
+    };
 
     unsafe {
       GetStdHandle(match self.inner.target {
         TermTarget::Stdout => STD_OUTPUT_HANDLE,
         TermTarget::Stderr => STD_ERROR_HANDLE,
-      }) as RawHandle
+      }).0 as RawHandle
     }
   }
 }

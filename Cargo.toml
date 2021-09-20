@@ -15,6 +15,9 @@ exclude = [
   "examples/updater/src-tauri"
 ]
 
+[patch.crates-io]
+webview2-com-sys = { path = "../webview2-rs/crates/bindings" }
+
 # default to small, optimized workspace release binaries
 [profile.release]
 panic = "abort"
