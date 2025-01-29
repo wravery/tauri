@@ -229,7 +229,9 @@ fn cargo_command(
   available_targets: &mut Option<Vec<RustupTarget>>,
   config_features: Vec<String>,
 ) -> crate::Result<Command> {
-  let runner = options.runner.unwrap_or_else(|| "cargo".into());
+  let cargo = std::env::var("CARGO").ok();
+  let runner = options.runner.as_deref().or_else(|| cargo.as_deref());
+  let runner = runner.unwrap_or("cargo");
 
   let mut build_cmd = Command::new(runner);
   build_cmd.arg(if dev { "run" } else { "build" });
